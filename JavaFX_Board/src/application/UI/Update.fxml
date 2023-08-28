@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="364.0" layoutY="45.0" text="수정">
+         <font>
+            <Font name="Malgun Gothic Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="140.0" text="제   목">
+         <font>
+            <Font name="Malgun Gothic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="224.0" text="작성자">
+         <font>
+            <Font name="Malgun Gothic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="300.0" text="내   용">
+         <font>
+            <Font name="Malgun Gothic" size="20.0" />
+         </font>
+      </Label>
+      <TextField layoutX="114.0" layoutY="142.0" prefHeight="25.0" prefWidth="600.0" />
+      <TextField layoutX="114.0" layoutY="226.0" prefHeight="25.0" prefWidth="600.0" />
+      <TextArea layoutX="114.0" layoutY="300.0" prefHeight="235.0" prefWidth="600.0" />
+      <Button fx:id="cancelButton" layoutX="599.0" layoutY="554.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="취소">
+         <font>
+            <Font name="Malgun Gothic" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="updateButton" layoutX="664.0" layoutY="554.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="확인">
+         <font>
+            <Font name="Malgun Gothic" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
