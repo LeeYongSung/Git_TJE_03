@@ -7,6 +7,7 @@ import application.Util.SceneUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -15,10 +16,14 @@ public class InsertController {
     private TextField textFieldWriter;
 
     @FXML
+    private TextField textFieldBoardNo;
+
+    @FXML
     private TextField textFieldTitles;
 
     @FXML
-    private TextField textFieldContent;
+    private TextArea textFieldContent;
+     			      
 
 
 

@@ -18,7 +18,7 @@
             <TableColumn fx:id="colUpdDate" prefWidth="130.0" text="수정일자" />
         </columns>
       </TableView>
-      <Button fx:id="clickWrite" layoutX="698.0" layoutY="550.0" mnemonicParsing="false" onAction="#clickWrite" prefHeight="25.0" text="글쓰기">
+      <Button layoutX="698.0" layoutY="550.0" mnemonicParsing="false" onAction="#clickWrite" prefHeight="25.0" text="글쓰기">
          <font>
             <Font name="Malgun Gothic" size="12.0" />
          </font>

@@ -32,12 +32,12 @@
       <TextField fx:id="textFieldTitles" layoutX="114.0" layoutY="142.0" prefHeight="25.0" prefWidth="600.0" />
       <TextField fx:id="textFieldWriter" layoutX="114.0" layoutY="226.0" prefHeight="25.0" prefWidth="600.0" />
       <TextArea fx:id="textFieldContent" layoutX="114.0" layoutY="300.0" prefHeight="235.0" prefWidth="600.0" />
-      <Button fx:id="cancelButton" layoutX="599.0" layoutY="554.0" mnemonicParsing="false" onAction="#clickList" prefHeight="25.0" prefWidth="50.0" text="취소">
+      <Button layoutX="599.0" layoutY="554.0" mnemonicParsing="false" onAction="#clickList" prefHeight="25.0" prefWidth="50.0" text="취소">
          <font>
             <Font name="Malgun Gothic" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="insertButton" layoutX="664.0" layoutY="554.0" mnemonicParsing="false" onAction="#clickWrite" prefHeight="25.0" prefWidth="50.0" text="확인">
+      <Button layoutX="664.0" layoutY="554.0" mnemonicParsing="false" onAction="#clickWrite" prefHeight="25.0" prefWidth="50.0" text="확인">
          <font>
             <Font name="Malgun Gothic" size="12.0" />
          </font>
