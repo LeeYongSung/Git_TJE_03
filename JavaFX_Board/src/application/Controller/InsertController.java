@@ -14,19 +14,13 @@ import javafx.stage.Stage;
 public class InsertController {
     @FXML
     private TextField textFieldWriter;
-
     @FXML
     private TextField textFieldBoardNo;
-
     @FXML
     private TextField textFieldTitles;
-
     @FXML
     private TextArea textFieldContent;
-     			      
-
-
-
+     			
     BoardDAO boardDAO = new BoardDAO();
 
     Board writeBoard;

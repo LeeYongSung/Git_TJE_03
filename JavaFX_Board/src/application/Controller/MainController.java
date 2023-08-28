@@ -2,17 +2,14 @@ package application.Controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import application.DAO.BoardDAO;
 import application.DTO.Board;
+import application.Service.BoardService;
+import application.Service.BoardServiceImpl;
 import application.Util.SceneUtil;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -30,6 +27,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable {
+	static List<Board> boardList = new ArrayList<Board>();
+	static BoardService boardService = new BoardServiceImpl();
+	
 	@FXML
 	private TableView<Board> boardTableView;
 	@FXML
@@ -45,13 +45,11 @@ public class MainController implements Initializable {
 	Stage stage;
 	Scene scene;
 	Parent root;
-	BoardDAO boardDAO = new BoardDAO();
-
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// 게시글 목록 DAO로 부터 불러와서 boardList에 담아 오기
-		List<Board> boardList = (List<Board>) boardDAO.selectList();
 		
+		boardList = boardService.list();
 		
 		ObservableList<Board> list = FXCollections.observableArrayList(boardList);
 		
@@ -61,8 +59,6 @@ public class MainController implements Initializable {
 		colRegDate.setCellValueFactory( new PropertyValueFactory<>("RegDate") );
 		colUpdDate.setCellValueFactory( new PropertyValueFactory<>("UpdDate") );
 
-        // TableView 에 데이터 리스트를 지정
-        // - 미리 매핑된 TableColumn 에 리스트의 요소 객체의 변수값이 지정됨
         boardTableView.setItems(list);
 
         boardTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -72,29 +68,19 @@ public class MainController implements Initializable {
 
                 // 더블 클릭 이벤트
                 if (event.getClickCount() == 2) {
-
+                	
                     int index = boardTableView.getSelectionModel().getSelectedItem().getBoardNo();
-                    
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource(UI.READ.getPath()));
+    
                     try {
-                    	root = loader.load(); 
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource(UI.READ.getPath()));
+                        Parent root = loader.load();
+                        ReadController readController = loader.getController();
+                        readController.boardRead(index);
+                        
+                        SceneUtil.getInstance().switchScene(event, UI.READ.getPath(), root);
                     } catch (IOException e) {
-                    	e.printStackTrace();
+                        e.printStackTrace();
                     }
-                  
-                    Read readController =  loader.getController();
-                    
-                    if( readController != null) {
-   
-                    	readController.boardRead(index);
-                    }
-                    try {
-						SceneUtil.getInstance().switchScene(event, UI.READ.getPath());
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
                 }
 
             }

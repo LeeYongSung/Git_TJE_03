@@ -4,10 +4,10 @@ module JavaFX_Board {
 	requires javafx.fxml;
 	requires java.sql;
 	
-	opens application to javafx.graphics, javafx.fxml;
-	opens application.Controller to javafx.fxml;
-	opens application.DTO to javafx.base;
-	opens application.Service to javafx.base, favafx,fxml;
-	opens application.Util to javafx.base;
-	opens application.DAO to java.sql;
+	opens application to javafx.graphics, javafx.fxml, java.sql, javafx.base;
+	opens application.Controller to javafx.fxml, javafx.base, javafx.controls, java.sql;
+	opens application.DTO to javafx.base, javafx.controls, javafx.fxml, java.sql;
+	opens application.Service to javafx.base, javafx.controls, javafx.fxml, java.sql;
+	opens application.Util to javafx.base, javafx.controls, javafx.fxml, java.sql;
+	opens application.DAO to javafx.base, javafx.controls, javafx.fxml, java.sql;
 }
