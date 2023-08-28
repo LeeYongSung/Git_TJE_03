@@ -15,9 +15,6 @@ public class InsertController {
     private TextField textFieldWriter;
 
     @FXML
-    private TextField textFieldBoardNo;
-
-    @FXML
     private TextField textFieldTitles;
 
     @FXML

@@ -15,6 +15,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,11 +55,11 @@ public class MainController implements Initializable {
 		
 		ObservableList<Board> list = FXCollections.observableArrayList(boardList);
 		
-		‌colBoardNo.setCellValueFactory(new PropertyValueFactory<>("BoardNo"));
-        colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
-        colWriter.setCellValueFactory(new PropertyValueFactory<>("Writer"));
-        colRegDate.setCellValueFactory(new PropertyValueFactory<>("RegDate"));
-        colUpdDate.setCellValueFactory(new PropertyValueFactory<>("UpdDate"));
+		colBoardNo.setCellValueFactory( new PropertyValueFactory<>("BoardNo") );
+		colTitle.setCellValueFactory( new PropertyValueFactory<>("Title") );
+		colWriter.setCellValueFactory( new PropertyValueFactory<>("Writer") );
+		colRegDate.setCellValueFactory( new PropertyValueFactory<>("RegDate") );
+		colUpdDate.setCellValueFactory( new PropertyValueFactory<>("UpdDate") );
 
         // TableView 에 데이터 리스트를 지정
         // - 미리 매핑된 TableColumn 에 리스트의 요소 객체의 변수값이 지정됨
@@ -72,42 +73,35 @@ public class MainController implements Initializable {
                 // 더블 클릭 이벤트
                 if (event.getClickCount() == 2) {
 
-//                    int index = boardTableView.getSelectionModel().getSelectedItem().getBoardNo();
-//                    
-//                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                    FXMLLoader loader = new FXMLLoader(getClass().getResource(UI.READ.getPath()));
-//                    try {
-//                    	root = loader.load(); 
-//                    } catch (IOException e) {
-//                    	e.printStackTrace();
-//                    }
-//                  
-//                    ReadController readController =  loader.getController();
-//                    
-//                    if( readController != null) {
-//   
-//                    	readController.inputBoardNo(index);
-//                    }
-//        
+                    int index = boardTableView.getSelectionModel().getSelectedItem().getBoardNo();
                     
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource(UI.READ.getPath()));
+                    try {
+                    	root = loader.load(); 
+                    } catch (IOException e) {
+                    	e.printStackTrace();
+                    }
+                  
+                    Read readController =  loader.getController();
                     
-                    SceneUtil.getInstance().switchScene(event, UI.READ.getPath());
-                    
+                    if( readController != null) {
    
-                    
-                    
-                    
-                    
-
-                   
+                    	readController.boardRead(index);
+                    }
+                    try {
+						SceneUtil.getInstance().switchScene(event, UI.READ.getPath());
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
                 }
 
             }
-
         });
-		
-		
-		
+	}
+	public void clickWrite(ActionEvent event) throws IOException {
+		SceneUtil.getInstance().switchScene(event, UI.INSERT.getPath());
 	}
 
 }
