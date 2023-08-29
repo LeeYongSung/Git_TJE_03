@@ -25,6 +25,10 @@ public class Main extends Application {
 			
 			// 프로그램 종료
 			// SceneUtil.getInstance().close(stage);
+			stage.setOnCloseRequest( event -> {
+				event.consume();		// 기존 이벤트(프로그램 종료)를 제거. consume "소멸시키다"
+				SceneUtil.getInstance().close(stage);				
+			});
 			
 		} catch(Exception e) {
 			e.printStackTrace();

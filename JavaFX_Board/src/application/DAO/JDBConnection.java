@@ -18,8 +18,8 @@ public class JDBConnection {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");		 
 			
-			String url = "jdbc:mysql://127.0.0.1:3306/Board?serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&useSSL=false";
-			String id = "root";
+			String url = "jdbc:mysql://127.0.0.1:3306/elijah?serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true&useSSL=false";
+			String id = "elijah";
 			String pw = "123456";
 			
 			con = DriverManager.getConnection(url, id, pw);
