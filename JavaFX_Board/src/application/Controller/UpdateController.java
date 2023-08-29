@@ -32,12 +32,15 @@ public class UpdateController {
     
         
     public void boardUpdate(int index, String title, String writer, String content) {
-		board = boardService.select(index);
 		
+    	board = boardService.select(index);	// 선택한 게시글의 정보를 가져옵니다.
+		
+    	// 수정할 제목, 작성자, 내용을 파라미터에서 가져옵니다.
 		String tiTle = title;
     	String wriTer = writer;
     	String conTent = content;
     	
+    	// 각 TextField에 게시글의 제목, 작성자, 내용을 설정합니다.
     	Title.setPromptText(tiTle);
     	Writer.setPromptText(wriTer);
     	Content.setPromptText(conTent);
@@ -45,21 +48,23 @@ public class UpdateController {
 	}
     public void updataCreate(ActionEvent event) throws IOException {
 //    	System.out.println("눌림");
-    	int index = board.getBoardNo();
+    	int index = board.getBoardNo();	// 현재 게시글 번호를 가져옵니다.
+    	
+    	// 수정된 제목, 작성자, 내용을 TextField에서 가져옵니다.
     	String title = Title.getText();
     	String writer = Writer.getText();
     	String content = Content.getText();
     	
-    	Board board = new Board(title, writer, content);
-    	board.setBoardNo(index);
+    	Board board = new Board(title, writer, content); // 새로운 Board 객체를 생성하고 수정된 정보를 설정합니다.
+    	board.setBoardNo(index);	// 게시글 번호도 설정
     	
-    	int result = boardService.update(board);
+    	int result = boardService.update(board);	// DB에 업데이트 요청
 		
 		if (result > 0 ) {
 			System.out.println("게시글이 수정되었습니다.");
 		}
 		
-		SceneUtil.getInstance().switchScene(event, UI.MAIN.getPath());
+		SceneUtil.getInstance().switchScene(event, UI.MAIN.getPath()); // MAIN 화면으로 전환
     	
     }
     
