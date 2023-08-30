@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.UpdateController">
    <children>
       <Label layoutX="364.0" layoutY="45.0" text="수정">
          <font>
@@ -29,15 +29,15 @@
             <Font name="Malgun Gothic" size="20.0" />
          </font>
       </Label>
-      <TextField layoutX="114.0" layoutY="142.0" prefHeight="25.0" prefWidth="600.0" />
-      <TextField layoutX="114.0" layoutY="226.0" prefHeight="25.0" prefWidth="600.0" />
-      <TextArea layoutX="114.0" layoutY="300.0" prefHeight="235.0" prefWidth="600.0" />
-      <Button fx:id="cancelButton" layoutX="599.0" layoutY="554.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="취소">
+      <TextField fx:id="Title" layoutX="114.0" layoutY="142.0" prefHeight="25.0" prefWidth="600.0" />
+      <TextField fx:id="Writer" layoutX="114.0" layoutY="226.0" prefHeight="25.0" prefWidth="600.0" />
+      <TextArea fx:id="Content" layoutX="114.0" layoutY="300.0" prefHeight="235.0" prefWidth="600.0" />
+      <Button fx:id="cancelButton" layoutX="599.0" layoutY="554.0" mnemonicParsing="false" onAction="#clickList" prefHeight="25.0" prefWidth="50.0" text="취소">
          <font>
             <Font name="Malgun Gothic" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="updateButton" layoutX="664.0" layoutY="554.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="확인">
+      <Button fx:id="updateButton" layoutX="664.0" layoutY="554.0" mnemonicParsing="false" onAction="#updataCreate" prefHeight="25.0" prefWidth="50.0" text="확인">
          <font>
             <Font name="Malgun Gothic" size="12.0" />
          </font>

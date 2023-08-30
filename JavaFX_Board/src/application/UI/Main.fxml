@@ -7,18 +7,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller.MainController">
    <children>
-      <TableView layoutX="50.0" layoutY="130.0" prefHeight="400.0" prefWidth="700.0">
+      <TableView fx:id="boardTableView" layoutX="50.0" layoutY="130.0" prefHeight="400.0" prefWidth="700.0">
         <columns>
-          <TableColumn prefWidth="60.0" text="글 번호" />
-          <TableColumn prefWidth="300.0" text="제목" />
-            <TableColumn text="작성자" />
-            <TableColumn prefWidth="130.0" text="등록일자" />
-            <TableColumn prefWidth="130.0" text="수정일자" />
+          <TableColumn fx:id="colBoardNo" prefWidth="60.0" text="글 번호" />
+          <TableColumn fx:id="colTitle" prefWidth="300.0" text="제목" />
+            <TableColumn fx:id="colWriter" text="작성자" />
+            <TableColumn fx:id="colRegDate" prefWidth="130.0" text="등록일자" />
+            <TableColumn fx:id="colUpdDate" prefWidth="130.0" text="수정일자" />
         </columns>
       </TableView>
-      <Button fx:id="writeButton" layoutX="698.0" layoutY="550.0" mnemonicParsing="false" prefHeight="25.0" text="글쓰기">
+      <Button layoutX="698.0" layoutY="550.0" mnemonicParsing="false" onAction="#clickWrite" prefHeight="25.0" text="글쓰기">
          <font>
             <Font name="Malgun Gothic" size="12.0" />
          </font>
